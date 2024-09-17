@@ -61,6 +61,8 @@ public class Main{
                     ViewMemory(p, 5); //Show memory and occupied jobs;
                     break;
                 case 2:
+                    M.BestFit(p);
+                    ViewMemory(p,5);
                     break;
 
                 case 3:

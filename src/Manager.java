@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Manager {
 
     //This class contains code to implement memory allocation algorithms
@@ -24,6 +27,11 @@ public class Manager {
         return -1; //This means that we failed to allocate the job to a free block
 
 
+    }
+
+    public void BestFit(Partition [] P)
+    {
+        Arrays.sort(P, Comparator.comparingInt(partition -> partition.capacity ));
     }
 
 
