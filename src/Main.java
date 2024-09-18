@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 public class Main{
@@ -63,6 +64,29 @@ public class Main{
                 case 2:
                     M.BestFit(p);
                     ViewMemory(p,5);
+
+                    // create jobs and place in job array
+                    for(int i = 1; i <= 5; i++)
+                    {
+
+                        System.out.println("How large is job " + i + "?");
+                        jobSize = sc.nextInt();
+
+                        Job[] allJobs;
+                        allJobs = new Job[5];
+                        if(jobSize < 0)
+                        {
+
+                            System.out.println("INVALID SIZE ENTERED. TRY AGAIN");
+                            i--;
+                        }
+                        else
+                        {
+                            allJobs[i].ID = i;
+                            allJobs[i].size = jobSize;
+                        }
+                    }
+
                     break;
 
                 case 3:

@@ -34,6 +34,13 @@ public class Manager {
         Arrays.sort(P, Comparator.comparingInt(partition -> partition.capacity ));
     }
 
+    public void viewJobs(Job [] Jobs, int size)
+    {
+        for (int i = 1; i < size ; i++) {
+            System.out.println(Jobs);
+        }
+    }
+
 
 
 }
