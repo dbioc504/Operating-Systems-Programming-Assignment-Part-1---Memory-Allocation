@@ -62,18 +62,16 @@ public class Main{
                     ViewMemory(p, 5); //Show memory and occupied jobs;
                     break;
                 case 2:
-                    M.BestFit(p);
-                    ViewMemory(p,5);
+                    Job [] allJobs = new Job[5];
 
                     // create jobs and place in job array
-                    for(int i = 1; i <= 5; i++)
+                    for (int i = 0; i < 5; i++)
                     {
 
-                        System.out.println("How large is job " + i + "?");
+                        System.out.println("How large is job " + (i+1) + "?");
                         jobSize = sc.nextInt();
 
-                        Job[] allJobs;
-                        allJobs = new Job[5];
+
                         if(jobSize < 0)
                         {
 
@@ -82,10 +80,16 @@ public class Main{
                         }
                         else
                         {
-                            allJobs[i].ID = i;
-                            allJobs[i].size = jobSize;
+                            j = new Job();
+                            j.ID = i+1;
+                            j.size = jobSize;
+                            allJobs[i] = j;
                         }
                     }
+
+                    M.BestFit(p, allJobs);
+                    ViewMemory(p, 5);
+                    M.viewJobs(allJobs, 5);
 
                     break;
 

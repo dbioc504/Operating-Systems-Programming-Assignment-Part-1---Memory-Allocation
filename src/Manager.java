@@ -29,15 +29,16 @@ public class Manager {
 
     }
 
-    public void BestFit(Partition [] P)
+    public void BestFit(Partition [] P, Job [] jobs)
     {
         Arrays.sort(P, Comparator.comparingInt(partition -> partition.capacity ));
+        Arrays.sort(jobs, Comparator.comparingInt(job -> job.size));
     }
 
     public void viewJobs(Job [] Jobs, int size)
     {
-        for (int i = 1; i < size ; i++) {
-            System.out.println(Jobs);
+        for (int i = 0; i < size ; i++) {
+            System.out.println(Jobs[i].ID + "\t\t" + Jobs[i].size);
         }
     }
 
