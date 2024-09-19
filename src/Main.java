@@ -71,7 +71,6 @@ public class Main{
                         System.out.println("How large is job " + (i+1) + "?");
                         jobSize = sc.nextInt();
 
-
                         if(jobSize < 0)
                         {
 
@@ -88,8 +87,6 @@ public class Main{
                     }
 
                     M.BestFit(p, allJobs);
-                    ViewMemory(p, 5);
-                    M.viewJobs(allJobs, 5);
 
                     break;
 

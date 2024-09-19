@@ -31,9 +31,33 @@ public class Manager {
 
     public void BestFit(Partition [] P, Job [] jobs)
     {
+        // sort both arrays
         Arrays.sort(P, Comparator.comparingInt(partition -> partition.capacity ));
         Arrays.sort(jobs, Comparator.comparingInt(job -> job.size));
+
+        // loop through the jobs
+        for (Job job : jobs) {
+
+            // looping through partitions and assigning jobs to them
+            for (Partition partition : P){
+
+                // assigning a job to the specific partition
+                if (partition.capacity >= job.size && !partition.busy){
+
+                    partition.capacity -= job.size;
+                    partition.jobID = job.ID;
+                    partition.busy = true;
+
+                    break;
+                }
+            }
+        }
+
+        // sort partition array back to normal
+        Arrays.sort(P, Comparator.comparingInt(partition -> partition.address ));
+
     }
+
 
     public void viewJobs(Job [] Jobs, int size)
     {
