@@ -29,6 +29,7 @@ public class Manager {
 
     }
 
+
     public void BestFit(Partition [] P, Job [] jobs)
     {
         // sort both arrays
@@ -66,6 +67,35 @@ public class Manager {
         }
     }
 
+
+    public void nextFit(Partition [] P, Job [] jobs){
+        int size = P.length;
+        int j = 0;
+        int endpoint = size - 1;
+
+        for (int i = 0; i < size; i++) {
+
+            while (j < size){
+
+                if (P[j].capacity >= jobs[i].size && !P[j].busy){
+
+                    P[j].capacity -= jobs[i].size;
+                    P[j].jobID = jobs[i].ID;
+                    P[j].busy = true;
+
+                    endpoint = (j - 1) % size;
+                    break;
+                }
+                if (endpoint == j){
+                    endpoint = (j - 1) % size;
+                    break;
+                }
+
+                j = (j + 1) % size;
+            }
+        }
+
+    }
 
 
 }

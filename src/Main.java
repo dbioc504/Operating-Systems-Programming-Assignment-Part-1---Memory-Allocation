@@ -1,6 +1,6 @@
-import java.sql.Array;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
 public class Main{
 
     public static void ViewMemory(Partition [] P, int size)
@@ -116,6 +116,27 @@ public class Main{
                     break;
 
                 case 4:
+                    Job [] allJobs2 = new Job[5];
+
+                    for(int i = 0; i < 5; i++){
+
+
+                        System.out.println("How large is job " + (i+1) + "?");
+                        jobSize = sc.nextInt();
+
+                        if (jobSize < 0){
+                            System.out.println("INVALID SIZE ENTERED. TRY AGAIN.");
+                            i--;
+                        } else {
+                            j = new Job();
+                            j.ID = i+1;
+                            j.size = jobSize;
+                            allJobs2[i] = j;
+                        }
+                    }
+
+                    M.nextFit(p, allJobs2);
+
                     break;
 
                 case 5:
